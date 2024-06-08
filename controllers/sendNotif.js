@@ -1,6 +1,6 @@
 const axios = require('axios');
 const a71 = 'k-1df62120bdfe';
-const pc = 'http://127.0.0.1:8000'
+const pc = 'http://192.168.100.18:8000'
 
 
 exports.notifPc = async (data) => {
