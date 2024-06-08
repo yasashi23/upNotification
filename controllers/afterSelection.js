@@ -1,4 +1,5 @@
 const { notifPc, sendNotificationToPhone } = require('./sendNotif');
+const { notifLaptop} = require('./sendNotifLaptop');
 const { writeJsonJudul } = require('./writeFile');
 
 
@@ -10,7 +11,8 @@ exports.afterSelection = async (req, res) => {
         console.log("afterSelection")
         const testingNotifPc = await notifPc({ judul, desk });
         const notifToPhone = await sendNotificationToPhone(judul, desk, linknya);
-        console.log(testingNotifPc, notifToPhone);
+        const notifToLaptop = await notifLaptop({judul,desk})
+        console.log(testingNotifPc, notifToPhone,notifToLaptop);
         writeJsonJudul(judul)
         res.json({
             response: "notifikasi berhasil dikirim",

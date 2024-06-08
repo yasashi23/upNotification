@@ -1,9 +1,11 @@
 const axios = require('axios');
 const a71 = 'k-1df62120bdfe';
+const pc = 'http://127.0.0.1:8000'
+
 
 exports.notifPc = async (data) => {
     try {
-        const response = await axios.get('http://127.0.0.1:8000/pcNotifGet');
+        const response = await axios.get(`${pc}/pcNotifGet`);
         console.log('PC Notification Response:', response.data);
 
         await sendNotificationToPc(data);
@@ -15,7 +17,7 @@ exports.notifPc = async (data) => {
 
 const sendNotificationToPc = async (data) => {
     try {
-        const response = await axios.post('http://127.0.0.1:8000/pcNotif', data);
+        const response = await axios.post(`${pc}/pcNotif`, data);
         console.log('Response:', response.data);
         return response.data;
     } catch (error) {
