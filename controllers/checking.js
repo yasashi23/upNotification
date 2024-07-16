@@ -1,6 +1,15 @@
-const mySkills = ['Bootstrap', 'CSS', 'CSS 3', 'Figma', 'Front-End Development', 'HTML', 'HTML5', 'JavaScript', 'React', 'Responsive Design', 'Web Design', "SCSS", 'Web Development', 'jQuery','Landing Page']
+let mySkills = ['Bootstrap', 'CSS', 'CSS 3', 'Figma', 'Front-End Development', 'HTML', 'HTML5', 'JavaScript', 'React', 'Responsive Design', 'Web Design', "SCSS", 'Web Development', 'jQuery','Landing Page']
+
+let addNewSkills = ['Mockup','User Interface Design','Adobe XD','PHP','Sass','XHTML','Graphic Design']
 
 
+function pushingNewSkills(){
+    addNewSkills.map(el =>{
+        mySkills.push(el)
+    })
+}
+
+pushingNewSkills()
 
 
 const checkingUpworkSkills = (a) => {

@@ -1,15 +1,16 @@
 const { checkingAllData } = require('./checking');
-const { readJsonJudul,timeNow } = require('./writeFile');
+const { readJsonJudul,readJsonNomor,timeNow } = require('./writeFile');
 
 exports.data = async (req, res, next) => {
     const { Skill, negara, paymentnya, spendnya, judul, ...dataBody } = req.body;
 
     const resultChecking = checkingAllData(Skill, negara, paymentnya, spendnya);
-    const queueSendNotif = readJsonJudul(); // Karena queueSend synchronous, tidak perlu await
-    
+    const queueSendNotif = readJsonJudul(); 
+    // const jsonNumber = readJsonNomor()
     if (resultChecking) {
         if(queueSendNotif !== judul){
             console.log("berhasil",judul,timeNow());
+
             next();
         }else{
             res.json({response:"masih sama"})
